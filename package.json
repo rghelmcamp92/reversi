@@ -1,0 +1,23 @@
+{
+  "name": "reversi",
+  "version": "1.0.0",
+  "description": "This is the game of Reversi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rghelmcamp92/reversi.git"
+  },
+  "author": "Randall Helmcamp",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rghelmcamp92/reversi/issues"
+  },
+  "homepage": "https://github.com/rghelmcamp92/reversi#readme",
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "socket.io": "^2.3.0"
+  }
+}
