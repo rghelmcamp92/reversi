@@ -1,14 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Enter your user name for Reversi</title>
+
     <style>
       #header-row {
         background-image: url(assets/images/gradient.jpg); 
       }
     </style>
+
+    <script>
+        function submitForm(){
+            var username = $('#username').val();
+            window.location.href = 'lobby.html?username='+username;
+        }
+    </script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
@@ -16,9 +26,22 @@
     <div class="container-fluid text-center" id="header-row">
       <div class = "row">
         <div class = "col">
-            <h2>This is the name page</h2>
+            <h2>Enter your user name</h2>
         </div>
       </div>
+
+        <div class='row'>
+            <div class = 'col'>
+                <form onsubmit='submitForm(); return false;' class='form-inline'>
+                    <div class = 'form-group'>
+                        <label for = 'username' class='col-form- sr-only'>Enter your user name</label>
+                        <input class='form-control' type='text' value='' id= 'username' placeholder="Enter your user name"/>
+                    </div>
+                    <button type='submit' class='btn-default btn-primary'>Submit</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
 
