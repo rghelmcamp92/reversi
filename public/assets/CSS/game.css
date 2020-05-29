@@ -1,0 +1,21 @@
+#header-row {
+    background-image: url('../images/gradient.jpg'); 
+  }
+
+  table#game_board{
+    margin: auto;
+    border-style: solid;
+    border-width: 10px;
+    border-color: rgb(100,100,100);
+  }
+
+  table#game-board td{
+      padding:5px;
+      border-style: solid;
+      border-width: 10px;
+      border-color: rgb(100,100,100);
+  }
+
+  #messages p{
+      margin: 0px;
+  }
