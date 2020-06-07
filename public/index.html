@@ -1,51 +1,74 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
       body {
-        background-image: url(assets/images/gradient.jpg); 
+        background-image: url(assets/images/GradientReversi.png); 
       }
     </style>
+
+  <script>
+    function submitForm(){
+        var username = $('#username').val();
+        window.location.href = 'lobby.html?username='+username;
+    }
+  </script>
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='assets/CSS/game.css'/>
 
-    <title>Hello, world!</title>
+  <title>Reversi</title>
   </head>
+
+  <!-- Body Content-->
+
   <body>
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-left">
       <div class = "row">
         <div class = "col">
-          <img class="img-fluid" src="assets/images/top-splash.png" alt = "Reversi Logo"/>
+          <img class="img-fluid header-img" src="assets/images/top-splash.png" alt = "Reversi Logo"/>
         </div>
       </div>
 
       <div class = "row">
-        <div class = "col">
-          <a href="name.html" class="btn btn-lg btn-secondary">Let's Play</a>
+        <div class = "col text-left">
+            <h2 class='header1'>Enter a user name to get started</h2>
         </div>
       </div>
 
-      <div class = "row">
-        <div class = "col">
-          <img class="img-fluid" src="assets/images/top-splash.png" alt="Reversi Logo 2"/>
-        </div>
-        
-      </div>
+      <div class='row'>
+        <div class = 'col-12 text-center'>
+            <form onsubmit='submitForm(); return false;' class='form-inline text-center'>
 
+              <label for='username' class='col-form-label sr-only montserrat'>Enter your username</label>
+              <input class='form-control w-50 mx-24 montserrat' type='text' value='' id='username' placeholder='Enter your username'/>
+              <button type ='submit' class='btn btn-default btn-primary SubmitBtn montserrat'>Submit</button>
+
+              <!--  <div class = 'form-group'>
+                    <label for = 'username' class='col-form- sr-only montserrat'>Enter your user name</label>
+                    <input class='form-control montserrat' type='text' value='' id= 'username' placeholder="Enter your user name"/>
+                </div> 
+
+                <button type='submit' class='btn-default btn-primary montserrat'>Submit</button> -->
+            </form>
+        </div>
+    </div>
+      
       <div class = "row">
-        <div class = "col">
-          <a href="about.html" class="btn btn-lg btn-info">About</a>
+
+        <div class = "col-12 text-left">
+          <a href="about.html" class="btn btn-lg btn-info montserrat IndexBtn">About</a>
+          <a href="https://en.wikipedia.org/wiki/Reversi" class="btn btn-lg btn-info montserrat IndexBtn">Rules</a>
         </div>
-       
-        <div class = "col">
-          <a href="https://en.wikipedia.org/wiki/Reversi" class="btn btn-lg btn-info">Rules</a>
-        </div>
-      </div>
 
     </div>
+  </div>
 
 
     <!-- Optional JavaScript -->

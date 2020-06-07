@@ -1,5 +1,5 @@
 #header-row {
-    background-image: url('../images/gradient.jpg'); 
+    background-image: url('../images/GradientReversi.png'); 
   }
 
   table#game_board {
@@ -23,4 +23,47 @@
   td.hovered_over:hover {
     background: url('../images/error.gif');
     background-size: 100% 100%;
+  }
+
+  #usernameForm{
+    width: 100%;
+  }
+
+  .IndexHeader{
+    font-weight: 500;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 16px;
+    margin-bottom: 16px;;
+  }
+
+  .header-img{
+    padding: 24px;
+  }
+
+  .montserrat{
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .header1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: black
+    font-size: 36px;
+  }
+
+  .header2{
+    font-family: 'Montserrat', sans-serif; 
+    color: black;
+    font-size: 22px;
+  }
+
+  .IndexBtn {
+    width: 100px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .SubmitBtn{
+    margin: 16px;
   }
