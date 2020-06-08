@@ -47,8 +47,8 @@
 
   .header1{
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    color: black
+    font-weight: 700;
+    color: black;
     font-size: 36px;
   }
 
@@ -66,4 +66,21 @@
 
   .SubmitBtn{
     margin: 16px;
+  }
+
+  .headerMarg{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .scoreMarg{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .team{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: black;
+    font-size: 36px;
   }

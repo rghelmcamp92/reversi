@@ -83,7 +83,7 @@ socket.on('join_room_response',function(payload){
     }
 
     /* Manage the message that a new player has joined */ 
-    var newHTML = '<p>' +payload.username+' just entered the room</p>';
+    var newHTML = '<p class="montserrat">' +payload.username+' just entered the room</p>';
     var newNode = $(newHTML);
     newNode.hide();
     $('#messages').prepend(newNode);
@@ -219,7 +219,7 @@ socket.on('send_message_response',function(payload){
         alert(payload.message);
         return;
     }
-    var newHTML = '<p><b>'+payload.username+' says:</b> '+ payload.message+'</p>';
+    var newHTML = '<p class="montserrat"><b>'+payload.username+' says:</b> '+ payload.message+'</p>';
     var newNode = $(newHTML);
         newNode.hide();
     $('#messages').prepend(newNode);
@@ -228,7 +228,7 @@ socket.on('send_message_response',function(payload){
 
 
 function makeInviteButton(socket_id){
-    var newHTML = '<button type=\'button\' class = \'btn btn-outline-primary\'>Invite</button>';
+    var newHTML = '<button type=\'button\' class = \'btn btn-outline-primary text-left\'>Invite</button>';
     var newNode = $(newHTML);
     newNode.click(function(){
         invite(socket_id);
@@ -237,7 +237,7 @@ function makeInviteButton(socket_id){
 };
 
 function makeInvitedButton(socket_id){
-    var newHTML = '<button type=\'button\' class = \'btn btn-primary\'>Invited</button>';
+    var newHTML = '<button type=\'button\' class = \'btn btn-primary text-left\'>Invited</button>';
     var newNode = $(newHTML);
     newNode.click(function(){
         uninvite(socket_id);
@@ -303,19 +303,19 @@ socket.on('game_update',function(payload){
     }
 
     /* Update my color */
-    if(socket.id==payload.game.player_white.socket){
-        my_color = 'white';
+    if(socket.id==payload.game.player_orange.socket){
+        my_color = 'orange';
     }
-    else if(socket.id==payload.game.player_black.socket){
-        my_color = 'black';
+    else if(socket.id==payload.game.player_purple.socket){
+        my_color = 'purple';
     }
     else{
         window.location.href = 'lobby.html?username='+username;
         return;
     }
 
-    $('#my_color').html('<h3 id = "my_color">I am '+ my_color+'</h3>');
-    $('#my_color').append('<h4>It is '+payload.game.whose_turn+'\'s turn. <br> Elapsed time <span id ="elapsed"></span></h4>');
+    $('#my_color').html('<h3 class="team" id = "my_color">I am '+ my_color+'</h3>');
+    $('#my_color').append('<h4 class = "header2" >It is '+payload.game.whose_turn+'\'s turn. <br> Elapsed time <span id ="elapsed"></span></h4>');
 
     clearInterval(interval_timer);
     interval_timer = setInterval(function(last_time){
@@ -339,17 +339,17 @@ socket.on('game_update',function(payload){
 
     /* Animate changes to the board */
 
-    var blacksum = 0;
-    var whitesum = 0;
+    var purplesum = 0;
+    var orangesum = 0;
 
     var row, column;
     for(row = 0; row <8; row++){
         for(column=0; column<8; column++){
-            if(board[row][column] == 'b'){
-                blacksum++;
+            if(board[row][column] == 'p'){
+                purplesum++;
             }
-            if(board[row][column] == 'w'){
-                whitesum++;
+            if(board[row][column] == 'o'){
+                orangesum++;
             }
 
             /* If a board space has changed */
@@ -357,28 +357,28 @@ socket.on('game_update',function(payload){
                 if(old_board[row][column] == '?' && board[row][column] == ' '){
                     $('#'+row+'_'+column).html('<img src="assets/images/empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][column] == '?' && board[row][column] == 'w'){
+                else if(old_board[row][column] == '?' && board[row][column] == 'o'){
                     $('#'+row+'_'+column).html('<img src="assets/images/empty_to_white.gif" alt="white square"/>');
                 }
-                else if(old_board[row][column] == '?' && board[row][column] == 'b'){
+                else if(old_board[row][column] == '?' && board[row][column] == 'p'){
                     $('#'+row+'_'+column).html('<img src="assets/images/empty_to_black.gif" alt="black square"/>');
                 }
-                else if(old_board[row][column] == ' ' && board[row][column] == 'w'){
+                else if(old_board[row][column] == ' ' && board[row][column] == 'o'){
                     $('#'+row+'_'+column).html('<img src="assets/images/empty_to_white.gif" alt="white square"/>');
                 }
-                else if(old_board[row][column] == ' ' && board[row][column] == 'b'){
+                else if(old_board[row][column] == ' ' && board[row][column] == 'p'){
                     $('#'+row+'_'+column).html('<img src="assets/images/empty_to_black.gif" alt="black square"/>');
                 }
-                else if(old_board[row][column] == 'w' && board[row][column] == ' '){
+                else if(old_board[row][column] == 'o' && board[row][column] == ' '){
                     $('#'+row+'_'+column).html('<img src="assets/images/white_to_empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][column] == 'b' && board[row][column] == ' '){
+                else if(old_board[row][column] == 'p' && board[row][column] == ' '){
                     $('#'+row+'_'+column).html('<img src="assets/images/black_to_empty.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][column] == 'w' && board[row][column] == 'b'){
+                else if(old_board[row][column] == 'o' && board[row][column] == 'p'){
                     $('#'+row+'_'+column).html('<img src="assets/images/white_to_black.gif" alt="empty square"/>');
                 }
-                else if(old_board[row][column] == 'b' && board[row][column] == 'w'){
+                else if(old_board[row][column] == 'p' && board[row][column] == 'o'){
                     $('#'+row+'_'+column).html('<img src="assets/images/black_to_white.gif" alt="empty square"/>');
                 }
                 else{
@@ -407,8 +407,8 @@ socket.on('game_update',function(payload){
         }
     }
 
-    $('#blacksum').html(blacksum);
-    $('#whitesum').html(whitesum);
+    $('#purplesum').html(purplesum);
+    $('#orangesum').html(orangesum);
 
     old_board = board;
 });
